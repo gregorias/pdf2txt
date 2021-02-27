@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 
-from app.main import main
+from pdf2txt.main import main
 
 
 class ToolTestCase(unittest.TestCase):
