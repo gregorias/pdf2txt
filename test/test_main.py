@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 import unittest
 
-from pdf2txt.main import main
+from pdf2txt.main import parse_pdf
 
 
 class ToolTestCase(unittest.TestCase):
-    def test_main_extracts_text(self):
+    def test_parse_pdf_extracts_text(self):
         with open('test/testdata/Switzerland Payslip.pdf', 'rb') as input:
-            output = main(input)
+            output = parse_pdf(input)
 
         with open('test/testdata/Switzerland Payslip.txt',
                   'r') as expected_output_file:
