@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 import argparse
-from sys import stdin, stdout
+import sys
+from sys import stdin, stdout, stderr
 import typing
+from typing import Optional
 from tika import parser  # type: ignore
 
 
-def parse_pdf(input: typing.BinaryIO) -> str:
+def parse_pdf(input: typing.BinaryIO) -> Optional[str]:
     raw = parser.from_file(input)
     return raw['content']
 
@@ -19,6 +21,10 @@ def main() -> None:
                         help='the PDF file to parse')
     args = parser.parse_args()
     content = parse_pdf(args.pdf)
+    if content is None:
+        stderr.write("Could not parse the provided PDF.")
+        sys.exit(1)
+        return
     stdout.write(content)
 
 
