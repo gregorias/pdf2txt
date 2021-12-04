@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 tika = ">=1.24"
+pypdf2 = "*"
+textract = "*"
 
 [dev-packages]
 bpython = "*"
